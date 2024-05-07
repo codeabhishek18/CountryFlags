@@ -1,0 +1,31 @@
+.container
+{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    column-gap: 50px;
+    row-gap: 50px;
+    margin-top: 20px;
+}
+
+.country
+{
+    width: 150px;
+    height: 120px;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 8px;
+}
+
+.country img
+{
+    width: 80px;
+    height: 80px;
+    object-fit:contain;
+}
+
+.country p
+{
+    margin: 0;
+    font-weight: 600;
+}
