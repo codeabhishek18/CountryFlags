@@ -4,7 +4,7 @@ import styles from './Countries.module.css';
 
 const Countries = () =>
 {
-    const [data, setData] = useState([]);
+    const [countries, setCountries] = useState([]);
 
     useEffect(() =>
     {
@@ -13,16 +13,21 @@ const Countries = () =>
 
     const getCountries = async () =>
     {
-        const url = 'https://restcountries.com/v3.1/all';
-        const response = await axios.get(url);
-        setData(response.data);
+        try
+        {
+            const url = 'https://restcountries.com/v3.1/all';
+            const response = await axios.get(url);
+            setCountries(response.data);    
+        }
+        catch(error)
+        {
+            console.log(error);
+        }
     }
-
-    console.log(data);
 
     return(
         <div className={styles.container}>
-            {data.map((country)=>
+            {countries.map((country)=>
             (
                 <div className={styles.country} key={country.name.common}>
                     <img src={country.flags.png} alt={country.flags.alt}/>
